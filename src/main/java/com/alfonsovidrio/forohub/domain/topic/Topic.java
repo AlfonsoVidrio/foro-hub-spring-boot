@@ -3,6 +3,7 @@ package com.alfonsovidrio.forohub.domain.topic;
 import com.alfonsovidrio.forohub.domain.course.Course;
 import com.alfonsovidrio.forohub.domain.user.User;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -35,7 +36,19 @@ public class Topic {
         this.title = topicData.title();
         this.message = topicData.message();
         this.creationDate = LocalDateTime.now();
-        this.status = topicData.status();
+        this.status = Status.OPEN;
     }
 
+
+    public void update(@Valid UpdateTopicData updateTopicData) {
+        if (!this.id.equals(updateTopicData.id())) {
+            throw new IllegalArgumentException("Topic id does not match");
+        }
+        if (updateTopicData.title() != null) {
+            this.title = updateTopicData.title();
+        }
+        if (updateTopicData.message() != null) {
+            this.message = updateTopicData.message();
+        }
+    }
 }
