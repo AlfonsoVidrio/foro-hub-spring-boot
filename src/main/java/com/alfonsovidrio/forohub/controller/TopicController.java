@@ -16,6 +16,8 @@ public class TopicController {
     @Autowired
     private TopicService topicService;
 
+
+
     @PostMapping
     @Transactional
     public ResponseEntity<TopicResponse> create(@RequestBody @Valid TopicData topicData) {
@@ -27,4 +29,25 @@ public class TopicController {
     public ResponseEntity<Page<GetTopicData>> list(@PageableDefault(size = 5) Pageable pageable) {
         return ResponseEntity.ok(topicService.listTopics(pageable));
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<TopicResponse> get(@PathVariable Long id) {
+        return ResponseEntity.ok(new TopicResponse(topicService.getTopic(id)));
+    }
+
+    @PutMapping
+    @Transactional
+    public ResponseEntity<TopicResponse> update(@RequestBody @Valid UpdateTopicData updateTopicData) {
+        topicService.updateTopic(updateTopicData);
+        return ResponseEntity.ok(new TopicResponse(topicService.getTopic(updateTopicData.id())));
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        Topic topic = topicService.getTopic(id);
+        topicService.deleteTopic(topic);
+        return ResponseEntity.noContent().build();
+    }
+
 }
