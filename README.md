@@ -117,7 +117,7 @@ You can view the Swagger documentation for the API by navigating to the followin
 ## Author
 Developed by Alfonso Manuel Vidrio Lizaola.
 
-[LinkedIn: Alfonso Manuel Vidrio Lizaola](https://www.linkedin.com/in/alfonsovidrio)
+[LinkedIn: Alfonso Manuel Vidrio Lizaola](https://www.linkedin.com/in/alfonsomanuelvidriolizaola/)
 
 ## Badge
 <div>
