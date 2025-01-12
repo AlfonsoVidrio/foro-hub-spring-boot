@@ -12,6 +12,7 @@ Foro Hub is a REST API developed with Spring Boot for managing forum topics and 
 5. [Database Setup](#database-setup)
     - [Create the Database](#create-the-database)
     - [Insert User into Database](#insert-user-into-database)
+    - [Insert Courses into Database](#insert-courses-into-database)
 6. [Documentation](#documentation)
 7. [Author](#author)
 8. [Badge](#badge)
