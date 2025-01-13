@@ -3,10 +3,8 @@ package com.alfonsovidrio.forohub.domain.reply;
 import com.alfonsovidrio.forohub.domain.topic.Topic;
 import com.alfonsovidrio.forohub.domain.user.User;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import jakarta.validation.Valid;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -22,15 +20,28 @@ public class Reply {
     private Long id;
     private String message;
     private LocalDateTime creationDate;
+    @Setter
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "topic_id")
     private Topic topic;
+    @Setter
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
-    private Reply(ReplyData replyData) {
+    public Reply(ReplyData replyData) {
         this.message = replyData.message();
-        this.creationDate = replyData.creationDate();
+        this.creationDate = LocalDateTime.now();
+    }
+
+    public void update(@Valid UpdateReplyDate updateReplyData) {
+        if (!this.id.equals(updateReplyData.id())) {
+            throw new IllegalArgumentException("Reply id does not match");
+        }
+        if (updateReplyData.message() != null) {
+            this.message = updateReplyData.message();
+        }
+
+
     }
 }
