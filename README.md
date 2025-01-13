@@ -95,8 +95,11 @@ After creating the database, they need to run the project. Flyway, which is inte
 Run the following SQL command to insert the user into the database:
 
 ```sql
-INSERT INTO users (name, email, password) VALUES ('user.test', 'user18@test.com', '$2a$10$Q8MLbVpiHs9lw0iL2nI8oeITZDZJSai0lwfAtDfMMI');
+INSERT INTO users (name, email, password) VALUES ('user.test', 'user18@test.com', '$2a$10$zMManDqqFhlq09o1iNhrM.jXgiSYHMXF7IRCez6oExMk2dTvnPa4i');
 ```
+
+The password being inserted into the database is already hashed using the bcrypt algorithm. The value `$2a$10$zMManDqqFhlq09o1iNhrM.jXgiSYHMXF7IRCez6oExMk2dTvnPa4i` is the hash of the password "123456".
+
 
 ### Insert Courses into Database
 Run the following SQL command to insert three courses into the courses table:
