@@ -1,6 +1,6 @@
 # Foro Hub
 
-Foro Hub is a REST API developed with Spring Boot for managing forum topics and handling user authentication through JWT. The application allows users to create, update, delete, and view topics, providing an interactive platform for discussions. Additionally, it includes a secure login system that generates a JWT token for authentication, ensuring that only authorized users can interact with the API. 
+Foro Hub is a REST API built with Spring Boot for managing forum topics and replies. It includes JWT-based user authentication, allowing users to create, update, delete, and view topics, as well as post replies. Access is secured through JWT tokens, ensuring that only authorized users can interact with the API.
 
 ## Table of Contents
 1. [Technologies Used](#technologies-used)
@@ -88,6 +88,9 @@ Run the following SQL command to create the database:
 ```sql
 CREATE DATABASE forohub;
 ```
+
+After creating the database, they need to run the project. Flyway, which is integrated into the project, will automatically create the necessary tables when the project is run for the first time.
+
 ### Insert User into Database
 Run the following SQL command to insert the user into the database:
 
@@ -110,7 +113,7 @@ You can view the Swagger documentation for the API by navigating to the followin
 [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
 
 <div>
-  <img src="https://github.com/user-attachments/assets/a3ebe69f-f9ba-4dbc-a678-5a205002cd1e" alt="documentation swagger" style="max-width: 550px;">
+  <img src="https://github.com/user-attachments/assets/f51bcb4e-76dc-4466-a743-6744f5ad633c" alt="documentation swagger" style="max-width: 550px;">
 </div>
 
 
